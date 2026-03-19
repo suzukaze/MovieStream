@@ -14,13 +14,16 @@ struct MovieView: View {
     @State private var isLoading = false
     @State private var hasFetched = false
 
+    private let playerViewHeight = 300.0
+    private let playerViewPaddingTop = 40.0
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing) {
                 ZStack(alignment: .bottomLeading) {
                     CustomPlayerView(player: viewModel.player)
-                        .frame(height: 300)
-                        .padding(.top, 40)
+                        .frame(height: playerViewHeight)
+                        .padding(.top, playerViewPaddingTop)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             viewModel.onPlayerTap()
@@ -31,7 +34,7 @@ struct MovieView: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .gray))
                             .scaleEffect(2.0)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 300)
+                            .frame(height: playerViewHeight)
                             .background(.clear)
                     }
                     
@@ -46,6 +49,7 @@ struct MovieView: View {
                                 .shadow(radius: 10)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.top, playerViewPaddingTop)
                         Text("\(StringUtils.timeString(from: viewModel.currentTime))/\(StringUtils.timeString(from: viewModel.duration))")
                             .font(.system(size: 14, weight: .bold, design: .monospaced))
                             .foregroundColor(.white)
@@ -82,7 +86,7 @@ struct MovieView: View {
                     }
                     .padding(.bottom, 30)
                 }
-                .frame(height: 300)
+                .frame(height: playerViewHeight)
                 .padding(.horizontal, 10)
                 if viewModel.showPlayerMenu {
                     Button(action: {
@@ -98,7 +102,7 @@ struct MovieView: View {
                     .padding(.trailing, 16)
                 }
             }
-            .frame(height: 300)
+            .frame(height: playerViewHeight)
             .sheet(isPresented: $showSheet) {
                 MovieSettingsSheet(showSheet: $showSheet, playbackRate: $viewModel.playbackRate)
                     .presentationDetents([.height(250)])
@@ -113,7 +117,7 @@ struct MovieView: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .gray))
                             .scaleEffect(2.0)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 300)
+                            .frame(height: playerViewHeight)
                             .background(.clear)
                     }
                     ForEach(viewModel.otherMovies.prefix(4), id: \.id) { movie in
