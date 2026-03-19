@@ -10,6 +10,8 @@
 "movie.screen.name" = "動画";
 "search.screen.name" = "検索";
 
+"search.screen.message" = "検索キーワードを入力";
+
 "speed.0_25" = "再生速度 x0.25";
 "speed.0_5" = "再生速度 x0.5";
 "speed.1_0" = "再生速度 標準";

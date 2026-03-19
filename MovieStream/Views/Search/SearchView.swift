@@ -17,7 +17,7 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            TextField("検索キーワードを入力", text: $keyword)
+            TextField(String(localized: "search.screen.message"), text: $keyword)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .onSubmit {
