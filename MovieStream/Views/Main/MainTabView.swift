@@ -10,7 +10,6 @@ import SwiftUI
 enum TabSelection: Hashable {
     case movie
     case search
-    case dummy
 }
 
 struct MainTabView: View {
@@ -30,12 +29,6 @@ struct MainTabView: View {
                     Text(String(localized: "search.screen.name"))
                 }
                 .tag(TabSelection.search)
-            DummyView()
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text(String(localized: "dummy.screen.name"))
-                }
-                .tag(TabSelection.dummy)
         }
     }
 }

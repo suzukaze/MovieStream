@@ -53,7 +53,6 @@
 				Utils/StringUtils.swift,
 				ViewModels/MovieViewModel.swift,
 				ViewModels/SearchViewModel.swift,
-				Views/Dummy/DummyView.swift,
 				Views/Main/MainTabView.swift,
 				Views/Movie/ColorSlider.swift,
 				"Views/Movie/ColorSlider+Tint.swift",
